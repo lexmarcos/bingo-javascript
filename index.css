@@ -1,0 +1,359 @@
+/* Importa a fonte "ROBOTO" da google fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,900&display=swap');
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+}
+
+/* NavBar */
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #FFF;
+  box-shadow: 0px 18px 40px #2237581f;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: #253858;
+}
+
+#displayNum{
+  font-weight: 700;
+}
+
+#segundosLi{
+  float: right !important;
+}
+
+/* Div onde será renderizada as cartelas */
+.content {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+  padding: 40px;
+  margin: 10px 0px;
+  transition: 0.5s;
+}
+
+/* Card para as cartelas */
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0px 18px 40px #2237581f;
+  height: 300px;
+  width: 300px;
+  padding: 20px;
+  margin-top: 20px;
+  margin: 20px;
+}
+
+/* Div que exibe os números sorteados */
+.exibeNumeros{
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.exibeNumeros h1{
+  font-weight: 900;
+  color: rgb(58, 62, 80);
+}
+
+.exibeNumeros p{
+  font-weight: 500;
+  color: rgb(101, 108, 139);
+}
+
+/* Div que exibe os inputs antes de começar o jogo, numero de jogadores, nome etc */
+.inputStart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  transition: 0.5s;
+  background: url("./assets/background.png") center/cover;
+  background-repeat: no-repeat;
+}
+
+/* Diminui os inputs nessa div pra caber no modo responsivo */
+.inputStart .input-field {
+  margin: 0px 35px;
+}
+
+/* Estilização dos inputs */
+.input-field input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid rgb(231, 231, 231);
+  border-radius: 4px;
+  outline: 0;
+  margin-bottom: 30px;
+  transition: 0.5s;
+}
+
+/* Diminui o tamanho do input de número de jogadores */
+input[type="number"]{
+  width: 55%;
+  text-align: center;
+}
+
+/* Retira as setas de aumentar e diminuir nos inputs de number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Altera a cor da descrição do input */
+.input-field input::placeholder {
+  color: rgb(185, 185, 185);
+}
+
+/* Muda a cor da borda quando o usuário tá digitando no input */
+.input-field input:focus {
+  border: 2px solid #8ec5fc;
+}
+/* Como o jogo não é a primeira coisa a ser renderizada
+ele começa escondido
+*/
+.jogo{
+  display: none;
+  margin-top: 40px;
+}
+
+/* O start também fica escondido até que o número de jogadores tenha sido informado */
+.start{
+  display: none;
+}
+
+/* Altera a aparência da tabela toda */
+table.customTable {
+  width: 100%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #e7e7e7;
+  border-style: solid;
+  color: #253858;
+  height: 300px;
+
+}
+
+/* Altera a aparência das cédulas da tabela */
+table.customTable td,
+table.customTable th {
+  border-width: 2px;
+  border-color: #e7e7e7;
+  border-style: solid;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  width: 20px;
+
+}
+
+table.customTable td{
+  transition: .8s;
+  cursor: pointer;
+  background: #FFF
+}
+
+table.customTable thead {
+  background-color: #e7e7e7;
+}
+
+/* estilização dos números já sorteados */
+#displaySortNum{
+  color: rgb(125, 133, 172);
+  font-weight: 300;
+  text-align: justify;
+  width: 40%;
+  text-align-last: center;
+}
+
+/* Estilização do alerta de quando o usuário ainda não bateu */
+.redAlert{
+  color: #FFF;
+  font-weight: 300;
+  text-align: justify;
+  width: 40%;
+  text-align-last: center;
+  transition: .5s;
+  background: rgb(187, 53, 53);
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: 400;
+  display: none;
+  box-shadow: 0px 18px 40px #ff000041;
+}
+
+/* Tela de ganhador */
+.ganhou{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  /* Usando position absolute para sobrepor todas as outras telas */
+  position: absolute;
+  background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+  opacity: 0;
+  display: none;
+  transition: .8s;
+  overflow: hidden;
+}
+
+/* Estilização do h1 da pagina de ganhador */
+.ganhou h1{
+  color: #FFF;
+  text-transform: uppercase;
+}
+
+/* Estilização do texto da pagina de ganhador */
+#textoGanhador{
+  font-weight: 300;
+}
+
+/* Altera a cor do botão para o botão restart */
+.restart{
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%) !important;
+}
+
+/* Div que engloba todas as legendas */
+.legendas{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Divs que englobam a cor da legenda e o texto*/
+.redLegenda, .blueLegenda, .greenLegenda{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+/* Cor da legenda */
+.squareRed{
+  background: red;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  margin: 0px 10px;
+  box-shadow: 0px 2px 20px #2237584f;
+}
+
+/* Cor da legenda */
+.squareBlue{
+  background: #55cde6;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  box-shadow: 0px 2px 20px #2237584f;
+  margin: 0px 10px;
+}
+
+/* Cor da legenda */
+.squareGreen{
+  background: #48cf92;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  margin: 0px 10px;
+  box-shadow: 0px 2px 20px #2237584f;
+}
+
+/* Botão genérico */
+.btn-normal {
+  padding: 10px 40px;
+  border: none;
+  background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+  box-shadow: 0 18px 40px -5px #b4c4fc;
+  border-radius: 7px;
+  margin: 15px 0px;
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  outline: none;
+  transition: 0.5s;
+}
+
+.red{
+  background-image: -webkit-linear-gradient(left, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%) !important;
+  background-image: -o-linear-gradient(left, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+  background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+  box-shadow: none;
+  padding: 10px 15px;
+}
+
+/* Quando o mouse ficar sobre o botão, ficar com a mousinha */
+.btn-normal:hover{
+  cursor: pointer;
+}
+
+.btn-normal:disabled{
+  background: gray;
+  box-shadow: none;
+  cursor: default;
+}
+@media only screen and (max-width: 1370px){
+  table.customTable{
+    height: 250;
+  }
+  table.customTable td, table.customTable th{
+    width: auto;
+    padding: 5px;
+  }
+  .content{
+    padding: 0px;
+  }
+  .red{
+    margin: 0px;
+  }
+  .navbar li{
+    padding: 5px 16px;
+  }
+}
+/* Querie para deixar responsivo as páginas */
+@media only screen and (max-width: 600px) {
+  .legendas {
+    display: block;
+  }
+  #displaySortNum{
+    width: 85%;
+  }
+  .exibeNumeros h1{
+    font-size: 17pt;
+  }
+  .card{
+    margin: 30px 0px;
+  }
+  .content{
+    padding: 0px;
+  }
+}

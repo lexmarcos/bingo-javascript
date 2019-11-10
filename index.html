@@ -1,0 +1,82 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <meta charset="UTF-8">
+  <title>BINGO!</title>
+
+  <head>
+
+  <body>
+    <!-- Div que exibe o ganhador -->
+    <div class="ganhou" id="ganhou">
+      <!-- Centraliza os elementos -->
+      <center>
+        <h1 id="nomeGanhador"></h1>
+        <h1 id="textoGanhador"></h1>
+        <!-- Botão de restart -->
+        <button class="btn-normal restart" onclick="restart()" id="restartt">novo jogo</button>
+      </center>
+    </div>
+    <!-- Div que exibe os inputs antes de começar o jogo, numero de jogadores, nomes etc -->
+    <div class="inputStart" id="inputStart">
+      <center>
+        <div class="input-field" id="areaNumJogadores">
+          <label htmlFor="title">Quantidade de jogadores</label>
+          <input type="number" placeholder="Quantos jogadores irão jogar?" id="numJogadores" onkeydown="javascript: return event.keyCode == 69 ? false : true"/>
+        </div>
+        <div class="areaInput" id="areaInput"></div>
+        <button class="btn-normal" onclick="getNumJogadores()" id="buttonNumJogadores" disabled="">Confirmar</button>
+        <button class="btn-normal start" onclick="startGame()" id="start">START!!!</button>
+    </div>
+    </center>
+    </div>
+    <!-- Div que exibe os números sorteados -->
+    <div class="exibeNumeros">
+      <div class="navbar">
+        <ul>
+          <li>
+            <p id="displayNum"></p>
+          </li>
+          <li id="segundosLi">
+            <p id="segundos"></p>
+          </li>
+        </ul>
+      </div>
+      <div id="jogo" class="jogo">
+        <center>
+          <!-- Número atualmente sorteado -->
+
+          <!-- Temporizador -->
+
+          <p>NÚMEROS JÁ SORTEADOS</p>
+          <p id="displaySortNum"></p>
+          <!-- Div das legendas -->
+          <div class="legendas">
+            <!-- Div da legenda vermelha -->
+            <div class="redLegenda">
+              <div class="squareRed"></div>
+              <p>Você esqueceu de marcar</p>
+            </div>
+            <!-- Div da legenda azul -->
+            <div class="blueLegenda">
+              <div class="squareBlue"></div>
+              <p>Você marcou o número</p>
+            </div>
+            <!-- Div da legenda verde -->
+            <div class="GreenLegenda">
+              <div class="squareGreen"></div>
+              <p>Você marcou o número certo</p>
+            </div>
+          </div>
+        </center>
+        <!-- Div onde é gerada as tabelas -->
+        <div class="content" id="content"></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="bingo.js"></script>
+  </body>
+
+</html>
