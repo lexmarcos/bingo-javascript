@@ -1,3 +1,4 @@
+![badge](https://img.shields.io/github/license/lexmarcos/bingo-javascript)
 # bingo-javascript
 A simple bingo with pure javascript code and html + css
 
